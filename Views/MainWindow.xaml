@@ -1,0 +1,38 @@
+﻿<Window x:Class="WpfApp1.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1.Views"
+        mc:Ignorable="d" 
+        xmlns:prism="http://prismlibrary.com/"
+        Title="MainWindow"
+        Width="900"
+        Height="650"
+        FontSize="20"
+        WindowStartupLocation="CenterScreen"
+       >
+  <Window.Resources>
+    <Style TargetType="Button">
+      <Setter Property="Margin" Value="10" />
+    </Style>
+  </Window.Resources>
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="auto" />
+      <RowDefinition />
+    </Grid.RowDefinitions>
+
+    <StackPanel>
+
+      <Button Command="{Binding ShowDialog1Command}" Content="主要测试-弹出：Show Dialog1" />
+      <Button Command="{Binding ShowACommand}" Content="普通测试Show View1" />
+      <Button Command="{Binding ShowBCommand}" Content="普通测试Show View2" /> 
+    </StackPanel>
+
+    <UniformGrid Grid.Row="1">
+      <ContentControl prism:RegionManager.RegionName="View1Region" />
+      <ContentControl prism:RegionManager.RegionName="View2Region" />
+    </UniformGrid>
+  </Grid>
+</Window>
